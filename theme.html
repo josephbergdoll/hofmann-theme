@@ -61,21 +61,20 @@
         {block:Posts}
         <article class='row single-post {PostType} {TagsAsClasses}'>
           <div class='post-title single-col'>
-            <div class='post-title-block'>
-              {block:Date}
-              <h3 class='post-date'>
-                <a href='{BlogURL}/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}'></a>
-                {DayOfMonth} {Month} {Year}
-              </h3>
-              {/block:Date}
-              {block:Text}
-              {block:Title}
-              <h2>
-                <a class='permalink' href='{URL}'>{Title}</a>
-              </h2>
-              {/block:Title}
-              {/block:Text}
-            </div>
+            <div class='post-title-block'></div>
+            {block:Date}
+            <h3 class='post-date'>
+              <a href='{BlogURL}/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}'></a>
+              {DayOfMonth} {Month} {Year}
+            </h3>
+            {/block:Date}
+            {block:Text}
+            {block:Title}
+            <h2>
+              <a class='permalink' href='{URL}'>{Title}</a>
+            </h2>
+            {/block:Title}
+            {/block:Text}
             {block:Photo}
             {block:Caption}
             <div class='caption-post-body'>
@@ -177,11 +176,10 @@
             </div>
             {/block:Panorama}
             {block:Photoset}
-            <div class='photoset-imgs row'>
-              {block:Photos}
-              <div class='photoset-img'>
-                <div class='photo-thumb' style='background-image: url({PhotoURL-HighRes});'></div>
-                <div class='photo-full'>
+            <div class='photoset-imgs-wrap'>
+              <div class='photoset-imgs'>
+                {block:Photos}
+                <div class='photo-wrap'>
                   <picture>
                     <source media='(max-width: 500px)' srcset='{PhotoURL-500}'>
                     <source media='(min-width: 501px)' srcset='{PhotoURL-HighRes}'>
@@ -199,9 +197,14 @@
                   </div>
                   {/block:Caption}
                 </div>
+                {/block:Photos}
               </div>
-              {/block:Photos}
             </div>
+            {block:Caption}
+            <div class='caption-post-body'>
+              {Caption}
+            </div>
+            {/block:Caption}
             {/block:Photoset}
             {block:Quote}
             <h1 class='quote-body'>{Quote}</h1>
@@ -272,6 +275,12 @@
               </div>
               {/block:TrackName}
             </div>
+            {block:Caption}
+            <div class='caption-post-body'>
+              {Caption}
+            </div>
+            {/block:Caption}
+            {/block:Audio}
             {block:Video}
             <div class='video-inner'>
               <div class='fitvids'>

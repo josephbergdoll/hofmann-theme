@@ -62,19 +62,19 @@
           -# Title Column --------------------------
           .post-title.single-col
             .post-title-block
-              {block:Date}
-              %h3.post-date
-                %a{:href => "{BlogURL}/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"}
-                {DayOfMonth} {Month} {Year}
-              {/block:Date}
+            {block:Date}
+            %h3.post-date
+              %a{:href => "{BlogURL}/day/{Year}/{MonthNumberWithZero}/{DayOfMonthWithZero}"}
+              {DayOfMonth} {Month} {Year}
+            {/block:Date}
 
-              -# Text Post
-              {block:Text}
-              {block:Title}
-              %h2
-                %a.permalink{:href => "{URL}"} {Title}
-              {/block:Title}
-              {/block:Text}
+            -# Text Post
+            {block:Text}
+            {block:Title}
+            %h2
+              %a.permalink{:href => "{URL}"} {Title}
+            {/block:Title}
+            {/block:Text}
 
             -# Photo Post
             {block:Photo}
@@ -179,11 +179,10 @@
             
             -# Photoset Post
             {block:Photoset}
-            .photoset-imgs.row
-              {block:Photos}
-              .photoset-img
-                .photo-thumb{:style => "background-image: url({PhotoURL-HighRes});"}
-                .photo-full
+            .photoset-imgs-wrap
+              .photoset-imgs
+                {block:Photos}
+                .photo-wrap
                   %picture
                     %source{:media => "(max-width: 500px)", :srcset => "{PhotoURL-500}"}
                     %source{:media => "(min-width: 501px)", :srcset => "{PhotoURL-HighRes}"}
@@ -197,7 +196,11 @@
                   .photo-single-caption
                     {Caption}
                   {/block:Caption}
-              {/block:Photos}
+                {/block:Photos}
+            {block:Caption}
+            .caption-post-body
+              {Caption}
+            {/block:Caption}
             {/block:Photoset}
             
             -# Quote Post
@@ -266,6 +269,11 @@
                 %h5 {Album}
                 {/block:Album}
               {/block:TrackName}
+            {block:Caption}
+            .caption-post-body
+              {Caption}
+            {/block:Caption}
+            {/block:Audio}
             
             -# Video Post
             {block:Video}
