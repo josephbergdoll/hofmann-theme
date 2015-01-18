@@ -1,0 +1,20 @@
+.nav-global {
+  .main-nav {
+    border-bottom: $standard-border-solid;
+    >li {
+      display: block;
+      float: left;
+      margin-bottom: -$border-width;
+      margin-right: $nav-horz-bumper;
+      > a {
+        display: block;
+        padding-top: $nav-vert-bumper;
+        padding-bottom: $nav-vert-bumper;
+        border-bottom: $border-trans;
+      }
+    }
+  }
+  .sub-nav {
+    display: none;
+  }
+}

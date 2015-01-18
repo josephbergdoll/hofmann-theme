@@ -1,0 +1,11 @@
+.header-main {
+  padding-top: $vertical-bumper;
+  margin-bottom: $vertical-bumper * 2;
+
+  .blog-cover {
+    min-height: 30rem;
+    background-size: cover !important;
+    background-position: center center !important;
+    margin-bottom: $vertical-bumper-half;
+  }
+}

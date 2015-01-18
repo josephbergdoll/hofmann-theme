@@ -1,0 +1,126 @@
+// Global Styleguide
+
+%sg-h1 {
+  font-size: $type-biggest;
+  line-height: $line-small;
+  font-weight: $type-bold;
+  &.headline-big {
+    font-size: $type-biggest-xlarge;
+    line-height: $line-small;
+    font-weight: $type-bold;
+  }
+}
+
+%sg-h2 {
+  font-size: $type-big;
+  line-height: $line-small;
+  font-weight: $type-medium;
+}
+
+%sg-h3 {
+  font-size: $type-big;
+  line-height: $line-small;
+  font-weight: $type-medium;
+  color: $mid-grey;
+  a {
+    color: $mid-grey;
+  }
+}
+
+%sg-h4 {
+  font-size: $type-mid;
+  line-height: $line-small;
+  font-weight: $type-book;
+}
+
+%sg-h5 {
+  font-size: $type-small;
+  line-height: $line-small;
+  font-weight: $type-bold;
+}
+
+%sg-h6 {
+  font-size: $type-small;
+  line-height: $line-small;
+  font-weight: $type-book;
+}
+
+%sg-body-copy {
+  font-family: $sans;
+  font-size: $type-paragraph;
+  line-height: $line-paragraph;
+  font-weight: $type-book;
+}
+
+%sg-body-link {
+}
+
+// body-link is for links used within copy blocks. text-link is used for non-button links all alone in the design.
+
+%sg-text-link {
+}
+
+%sg-blockquote {
+}
+
+%sg-button {
+  text-decoration: none;
+  @include appearance(none);
+}
+
+h1,h2,h3,h4,h5 {
+
+}
+
+h1, .h1 {
+  @extend %sg-h1 !optional;
+}
+
+h2, .h2 {
+  @extend %sg-h2 !optional;
+}
+
+h3, .h3 {
+  @extend %sg-h3 !optional;
+}
+
+h4, .h4 {
+  @extend %sg-h4 !optional;
+}
+
+h5, .h5 {
+  @extend %sg-h5 !optional;
+}
+
+h6, .h6 {
+  @extend %sg-h6 !optional;
+}
+
+p {
+  @extend %sg-body-copy !optional;
+  margin-bottom: $vertical-bumper-quarter;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  a {
+    @extend %sg-body-link !optional;
+  }
+}
+
+blockquote {
+  p {
+    @extend %sg-blockquote !optional;
+  }
+}
+
+button {
+ @extend %sg-button !optional;
+}
+
+.button {
+  @extend %sg-button !optional;
+}
+
+.text-link {
+  @extend %sg-text-link !optional;
+}

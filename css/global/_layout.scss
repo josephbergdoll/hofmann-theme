@@ -1,0 +1,113 @@
+// Structure
+
+.wrapper {
+  @include outer-container();
+  padding-left: $wrapper-padding-small;
+  padding-right: $wrapper-padding-small;
+  @include transition(padding $long-transition ease-in-out);
+  @include media($medium-only) {
+    padding-left: $wrapper-padding-medium;
+    padding-right: $wrapper-padding-medium;
+  }
+  @include media($large-up) {
+    padding-left: $wrapper-padding-large;
+    padding-right: $wrapper-padding-large;
+  }
+  &.collapse-small {
+    padding: 0;
+    @include media($medium-only) {
+      padding-left: $wrapper-padding-medium;
+      padding-right: $wrapper-padding-medium;
+    }
+    @include media($large-up) {
+      padding-left: $wrapper-padding-large;
+      padding-right: $wrapper-padding-large;
+    }
+  }
+  &.collapse-medium {
+    padding: 0;
+    @include media($medium-only) {
+      padding: 0;
+    }
+    @include media($large-up) {
+      padding-left: $wrapper-padding-large;
+      padding-right: $wrapper-padding-large;
+    }
+  }
+  &.collapse {
+    padding: 0;
+  }
+  &.outer {
+    @include media($medium-only) {
+      width: 98%;
+    }
+    @include media($large-up) {
+      width: 95%;
+    }
+    @include media($xxlarge) {
+      width: 92%;
+    }
+  }
+}
+
+.row {
+  @include row();
+  margin-left: -$column-padding-large;
+  margin-right: -$column-padding-large;
+}
+
+.single-col, .double-col {
+  padding: 0 $column-padding-large;
+  float: left;
+}
+
+.single-col {
+  width: 33.333%;
+}
+
+.double-col {
+  width: 66.666%;
+}
+
+#page-content {
+  position: relative;
+  opacity: 1;
+  left: 0;
+  @include transition(transform $short-transition $cubic-ease, opacity $short-transition ease-out);
+  .loading & {
+    opacity: 0;
+    @include transition(transform $short-transition $cubic-ease, opacity $hover-in ease-out);
+  }
+  &.not-loaded {
+    opacity: 0;
+  }
+}
+
+.lazy {
+  // background: $light-white;
+  img {
+    height: 0.5px;
+    opacity: 0;
+    @include transition(opacity $long-transition $cubic-ease);
+  }
+  &.lazy-loaded {
+    img {
+      height: auto;
+      opacity: 1;
+    }
+  }
+}
+
+.no-click {
+  display: block;
+  height: 0;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  background-color: $black-dark-transparent;
+  // pointer-events: none;
+  @include transition(transform $short-transition $cubic-ease, opacity $short-transition $cubic-ease, z-index 0s linear $short-transition, height 0s linear $short-transition, width 0s linear $short-transition);
+}

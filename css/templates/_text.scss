@@ -1,0 +1,6 @@
+.single-post.text {
+  .text-post-body {
+    @include column-count(2);
+    @include column-gap($column-padding-large * 2)
+  }
+}
